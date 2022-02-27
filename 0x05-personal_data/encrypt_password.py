@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
+""" 5. Encrypting passwords
 """
-encrypt_password
-"""
+
 import bcrypt
 
 
 def hash_password(password: str) -> bytes:
+    """ Salted pass generation
     """
-    hash_password function
-    """
-    password = bytes(password, 'utf-8')
-    return bcrypt.hashpw(password, bcrypt.gensalt())
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
 
 def is_valid(hashed_password: bytes, password: str) -> bool:
+    """ is valid?
     """
-    is_valid function
-    """
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
